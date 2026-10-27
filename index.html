@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#102d4a">
+<title>Policie ČR | KŘP Praha</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{font-family:Arial,Helvetica,sans-serif;background:#f1f4f7;color:#263442;line-height:1.65}
+a{text-decoration:none;color:inherit}
+.topline{height:5px;background:#d6ad3d}
+header{background:#102d4a;color:white;position:sticky;top:0;z-index:10;box-shadow:0 3px 12px #0002}
+.header-inner{max-width:1150px;margin:auto;padding:15px 20px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:48px;height:48px;border:2px solid #ffffff99;border-radius:50%;display:grid;place-items:center;font-weight:bold;font-size:13px}
+.brand h1{font-size:17px;line-height:1.3}
+.brand p{font-size:12px;color:#d6e0e9;margin-top:4px}
+.menu-button{width:46px;height:44px;border:1px solid #ffffff66;border-radius:5px;background:transparent;color:white;font-size:27px;cursor:pointer}
+.menu{display:none;background:#091d31;border-top:1px solid #ffffff22}
+.menu.open{display:block}
+.menu-inner{max-width:1150px;margin:auto;padding:12px 20px 18px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.menu a{padding:11px 13px;border:1px solid #ffffff22;border-radius:4px}
+.menu a:hover{background:#245b89}
+.hero{min-height:350px;color:white;display:flex;align-items:center;background:linear-gradient(90deg,#071a2bee,#102d4abf 65%,#102d4a55),url("https://www.prazskyden.cz/wp-content/uploads/2019/01/policie-cr.jpg") center/cover no-repeat}
+.hero-content{width:100%;max-width:1150px;margin:auto;padding:50px 20px}
+.eyebrow{color:#e4c45e;text-transform:uppercase;letter-spacing:2px;font-size:12px;font-weight:bold;margin-bottom:12px}
+.hero h2{font-size:clamp(30px,5vw,46px);line-height:1.2;margin-bottom:15px}
+.hero p{max-width:650px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:23px}
+.button{display:inline-block;padding:11px 17px;border:0;border-radius:4px;font-weight:bold;cursor:pointer;font-size:14px}
+.primary{background:#d6ad3d;color:#172536}
+.secondary{border:1px solid #ffffff99;color:white}
+main{max-width:1050px;margin:auto;padding:28px 18px 45px}
+.notice{background:#fff7dc;border-left:4px solid #d6ad3d;padding:13px 15px;margin-bottom:22px;font-size:13px}
+section{background:white;border:1px solid #dce3e9;border-radius:7px;padding:25px;margin-bottom:22px;scroll-margin-top:100px}
+section h2{font-size:24px;color:#102d4a;margin-bottom:12px}
+section p{margin-bottom:12px}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:18px}
+.card{background:#fafcfd;border:1px solid #dce3e9;border-radius:5px;padding:17px}
+.card h3{font-size:16px;color:#102d4a;margin-bottom:7px}
+.card p{font-size:14px;margin:0}
+.list{padding-left:22px}
+.list li{margin-bottom:8px}
+.contact{padding:12px 0;border-bottom:1px solid #dce3e9}
+.contact:last-child{border:0}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.field{margin-bottom:15px}
+label{display:block;font-size:14px;font-weight:bold;margin-bottom:6px}
+input,select,textarea{width:100%;padding:12px;border:1px solid #c8d2dc;border-radius:4px;background:white;font:inherit;font-size:15px}
+textarea{min-height:145px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:2px solid #6c9dc8}
+.small{font-size:12px;color:#586573;margin:8px 0 16px}
+#stav{margin-top:12px;overflow-wrap:anywhere;font-weight:bold}
+footer{background:#091d31;color:white;text-align:center;padding:25px 15px;font-size:13px}
+footer p{color:#d1dbe4;margin-top:5px}
+.fiction{display:inline-block;margin-top:10px;padding:5px 10px;border:1px solid #ffffff66;border-radius:4px;font-weight:bold}
+@media(max-width:700px){
+ .brand h1{font-size:14px}.brand p{font-size:11px}
+ .logo{width:42px;height:42px;font-size:12px}
+ .menu-inner{grid-template-columns:1fr 1fr}
+ .hero{min-height:330px}
+ .hero-content{padding:40px 18px}
+ main{padding:18px 11px 30px}
+ section{padding:19px 15px}
+ section h2{font-size:21px}
+ .cards,.form-row{grid-template-columns:1fr}
+}
+@media(max-width:380px){.menu-inner{grid-template-columns:1fr}}
+</style>
+</head>
+
+<body>
+<div class="topline"></div>
+
+<header>
+  <div class="header-inner">
+    <a href="#domu" class="brand">
+      <div class="logo">PČR</div>
+      <div>
+        <h1>Policie České republiky</h1>
+        <p>Krajské ředitelství policie hl. m. Prahy</p>
+      </div>
+    </a>
+    <button class="menu-button" id="menuButton" aria-label="Otevřít menu" aria-expanded="false">☰</button>
+  </div>
+
+  <nav class="menu" id="menu">
+    <div class="menu-inner">
+      <a href="#domu">Domů</a>
+      <a href="#utvary">Útvary</a>
+      <a href="#sluzby">Služby veřejnosti</a>
+      <a href="#vedeni">Vedení</a>
+      <a href="#kontakty">Kontakty</a>
+      <a href="#podatelna">Elektronická podatelna</a>
+    </div>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">Krajské ředitelství policie hl. m. Prahy</div>
+    <h2>Policie České republiky</h2>
+    <p>Informace o útvarech, vedení a službách veřejnosti v rámci policejního roleplay projektu.</p>
+    <div class="actions">
+      <a class="button primary" href="#kontakty">Kontakty</a>
+      <a class="button secondary" href="#podatelna">Elektronická podatelna</a>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="notice">
+    <strong>Upozornění:</strong> Toto je neoficiální fiktivní roleplay projekt.
+    Nejedná se o skutečný web Policie České republiky. Formulář neslouží
+    k oznámení skutečných událostí.
+  </div>
+
+  <section id="domu">
+    <h2>O krajském ředitelství</h2>
+    <p>Krajské ředitelství policie hl. m. Prahy je v tomto projektu součástí fiktivního policejního prostředí zaměřeného na organizaci policejní služby, komunikaci a administrativu.</p>
+    <p>Stránka slouží k prezentaci projektu a jeho organizační struktury.</p>
+    <div class="cards">
+      <div class="card"><h3>Policejní útvary</h3><p>Přehled útvarů a jejich zaměření v rámci projektu.</p></div>
+      <div class="card"><h3>Služby veřejnosti</h3><p>Informace o fiktivních žádostech a dotazech.</p></div>
+      <div class="card"><h3>Elektronická podatelna</h3><p>Formulář pro zaslání podání na projektový Discord.</p></div>
+    </div>
+  </section>
+
+  <section id="utvary">
+    <h2>Útvary</h2>
+    <p>Přehled fiktivních útvarů využívaných v rámci roleplay projektu.</p>
+    <div class="cards">
+      <div class="card"><h3>Pořádková policie</h3><p>Hlídková činnost a řešení běžných událostí v rámci RP.</p></div>
+      <div class="card"><h3>Dopravní policie</h3><p>Dohled nad dopravou a řešení fiktivních dopravních událostí.</p></div>
+      <div class="card"><h3>Kriminální policie</h3><p>Vyšetřování a dokumentace případů v rámci RP scénářů.</p></div>
+    </div>
+  </section>
+
+  <section id="sluzby">
+    <h2>Služby veřejnosti</h2>
+    <ul class="list">
+      <li>Podávání fiktivních žádostí a dotazů.</li>
+      <li>Informace o organizační struktuře projektu.</li>
+      <li>Komunikace s vedením projektu.</li>
+      <li>Administrativní požadavky související s roleplay.</li>
+    </ul>
+    <p>Uvedené služby jsou určeny výhradně pro fiktivní projekt.</p>
+  </section>
+
+  <section id="vedeni">
+    <h2>Vedení</h2>
+    <p>Údaje doplň podle aktuálního vedení svého roleplay projektu.</p>
+    <div class="cards">
+      <div class="card"><h3>Krajský ředitel</h3><p>Jméno a příjmení doplň zde.</p></div>
+      <div class="card"><h3>Náměstek ředitele</h3><p>Jméno a příjmení doplň zde.</p></div>
+      <div class="card"><h3>Vedoucí útvarů</h3><p>Seznam odpovědných osob projektu.</p></div>
+    </div>
+  </section>
+
+  <section id="kontakty">
+    <h2>Kontakty</h2>
+    <p>Následující kontaktní informace jsou určeny k doplnění podle tvého projektu.</p>
+    <div class="contact"><strong>Obecné dotazy</strong><br>Discord server projektu</div>
+    <div class="contact"><strong>Administrativa</strong><br>Elektronická podatelna</div>
+    <div class="contact"><strong>Roleplay komunikace</strong><br>Kontaktní kanály projektu</div>
+  </section>
+
+  <section id="podatelna">
+    <h2>Elektronická podatelna</h2>
+    <p>Vyplň formulář pro odeslání fiktivního podání na Discord server projektu.</p>
+
+    <form id="form">
+      <div class="form-row">
+        <div class="field">
+          <label for="jmeno">Jméno a příjmení *</label>
+          <input id="jmeno" name="jmeno" maxlength="100" required>
+        </div>
+        <div class="field">
+          <label for="email">E-mail *</label>
+          <input id="email" name="email" type="email" maxlength="200" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="typ">Typ podání *</label>
+        <select id="typ" name="typ" required>
+          <option value="">Vyber typ podání</option>
+          <option>Obecný dotaz</option>
+          <option>Žádost</option>
+          <option>Stížnost</option>
+          <option>Žádost o informace</option>
+          <option>Jiné podání</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="zprava">Text podání *</label>
+        <textarea id="zprava" name="zprava" maxlength="3000" placeholder="Napiš obsah podání..." required></textarea>
+      </div>
+
+      <p class="small">Nezadávej citlivé osobní údaje. Obsah formuláře bude odeslán na Discord webhook nastavený správcem webu.</p>
+      <button class="button primary" id="submitButton" type="submit">Odeslat podání</button>
+      <p id="stav" role="status" aria-live="polite"></p>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <strong>Policie České republiky | KŘP hl. m. Prahy</strong>
+  <p>Neoficiální projekt pro roleplay účely.</p>
+  <p>Nejedná se o oficiální web Policie České republiky.</p>
+  <div class="fiction">Fiktivní Roleplay Projekt</div>
+</footer>
+
+<script>
+/*
+  Vlož novou Discord webhook URL mezi uvozovky níže.
+  Pozor: webhook vložený do veřejného webu může kdokoliv získat.
+*/
+const DISCORD_WEBHOOK = "VLOZ_SEM_NOVY_WEBHOOK";
+
+const menuButton = document.getElementById("menuButton");
+const menu = document.getElementById("menu");
+const form = document.getElementById("form");
+const submitButton = document.getElementById("submitButton");
+const stav = document.getElementById("stav");
+
+menuButton.addEventListener("click", function () {
+  const otevreno = menu.classList.toggle("open");
+  menuButton.setAttribute("aria-expanded", String(otevreno));
+  menuButton.setAttribute("aria-label", otevreno ? "Zavřít menu" : "Otevřít menu");
+});
+
+menu.querySelectorAll("a").forEach(function (odkaz) {
+  odkaz.addEventListener("click", function () {
+    menu.classList.remove("open");
+    menuButton.setAttribute("aria-expanded", "false");
+    menuButton.setAttribute("aria-label", "Otevřít menu");
+  });
+});
+
+form.addEventListener("submit", async function (event) {
+  event.preventDefault();
+
+  if (!form.reportValidity()) return;
+
+  if (!DISCORD_WEBHOOK.startsWith("https://discord.com/api/webhooks/")) {
+    stav.textContent = "Nejdřív vlož platnou Discord webhook URL do kódu.";
+    stav.style.color = "#a12626";
+    return;
+  }
+
+  const jmeno = document.getElementById("jmeno").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const typ = document.getElementById("typ").value;
+  const zprava = document.getElementById("zprava").value.trim();
+
+  const data = {
+    username: "Elektronická podatelna",
+    allowed_mentions: { parse: [] },
+    embeds: [{
+      title: "Nové podání – KŘP Praha",
+      color: 0x124B83,
+      fields: [
+        { name: "Jméno", value: jmeno || "Neuvedeno" },
+        { name: "E-mail", value: email || "Neuvedeno" },
+        { name: "Typ podání", value: typ || "Neuvedeno" },
+        { name: "Text podání", value: zprava || "Neuvedeno" }
+      ],
+      footer: { text: "Fiktivní Roleplay Projekt" },
+      timestamp: new Date().toISOString()
+    }]
+  };
+
+  submitButton.disabled = true;
+  submitButton.textContent = "Odesílám...";
+  stav.textContent = "";
+
+  try {
+    const odpoved = await fetch(DISCORD_WEBHOOK, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
+
+    if (!odpoved.ok) {
+      throw new Error("Discord vrátil chybu HTTP " + odpoved.status);
+    }
+
+    stav.textContent = "Podání bylo odesláno na Discord.";
+    stav.style.color = "#18713b";
+    form.reset();
+  } catch (chyba) {
+    console.error(chyba);
+    stav.textContent =
+      "Odeslání se nepodařilo. Prohlížeč může blokovat přímé spojení s Discordem (CORS).";
+    stav.style.color = "#a12626";
+  } finally {
+    submitButton.disabled = false;
+    submitButton.textContent = "Odeslat podání";
+  }
+});
+</script>
+</body>
+      </html>
+
